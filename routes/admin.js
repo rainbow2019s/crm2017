@@ -9,8 +9,8 @@ var router = express.Router();
 
 /* 部门列表 */
 router.get('/departments', function(req, res, next) {
-    //res.render('index', { title: 'Express' });
-    res.end();
+    res.render('admin/index', { title: 'Express', message: 'aaaa' });
+    //res.end();
 });
 
 /* 部门修改 */
