@@ -9,7 +9,7 @@ var router = express.Router();
 
 /* 部门列表 */
 router.get('/departments', function(req, res, next) {
-    res.render('admin/index', { title: 'Express', message: 'aaaa' });
+    res.render('admin/departments/index', { title: 'Express', message: 'aaaa' });
     //res.end();
 });
 
@@ -24,7 +24,7 @@ router.post('/departments/create', function(req, res, next) {
 // ----------------------------------------------------------
 router.get('/managers', function(req, res, next) {
     //res.render('index', { title: 'Express' });
-    res.end();
+    res.render('admin/managers/index');
 });
 
 router.post('/managers/create', function(req, res, next) {

@@ -10,6 +10,10 @@ var users = require('./routes/users');
 var admin = require('./routes/admin');
 
 var app = express();
+var expressWs = require('express-ws')(app);
+var websocket = require('./routes/websocket');
+
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -27,6 +31,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', index);
 app.use('/users', users);
 app.use('/admin', admin);
+app.use('/websocket', websocket);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

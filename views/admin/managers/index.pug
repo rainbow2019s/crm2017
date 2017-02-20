@@ -1,0 +1,21 @@
+extends ../../layout
+
+block content
+  div(style='height:40px;line-height:40px;background:#f5f5f5;padding-left:10px')
+    span.glyphicon.glyphicon-menu-right(aria-hidden="true") 
+    span &nbsp;部门设置22
+  div.row(style='margin:10px;height:510px;background:#f5f5f5;padding-left:20px;padding-top:10px')
+    canvas#myChart(width="900",height="200")
+      
+  
+  script(src='http://www.bootcss.com/p/chart.js/docs/Chart.js')
+  script(type='text/javascript').
+      var test={};
+      var ctx = document.getElementById("myChart").getContext("2d");
+      console.log(ctx);
+      var chart=new Chart(ctx);
+      var source=new EventSource('/websocket/events');
+      source.addEventListener('example',function(e){
+        console.log(e.data);        
+        chart.Line(JSON.parse(e.data),{animation:false,scaleStartValue:0});
+      },false)
